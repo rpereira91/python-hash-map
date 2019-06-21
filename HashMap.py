@@ -26,19 +26,23 @@ class HashMap(object):
         #add the object to the bucket list
         else:
             bucket.append(item)
-
+    #gets the item from the key
     def get_item_value(self, key):
+        #get the hash key using the same method as when it was set
         hash_key = hash(key) % len(self.hashmap)
+        #set the bucket that is in the index of the hash key
         bucket = self.hashmap[hash_key]
+        #go through the bucket and if they key matches one of the keys in the bucket return that object
         for i, obj in enumerate(bucket):
-            return obj
-
+            if obj.get_key() == key:
+                return obj
+#dummy item class so I can practice inserting objects into the hashmap
 class Item(object):
     """docstring for Item."""
     def __init__(self, key, value):
         self.key = key
         self.value = value
-
+    #basic getter and setter methods 
     def get_value(self):
         return self.value
     def get_key(self):
