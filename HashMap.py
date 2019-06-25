@@ -1,3 +1,10 @@
+#Notes:
+# Get rid of iterating through the buckets, use indexOf to find element 
+# Re-build the hashmap if there are a large number of elements 
+# Get rid of the print statement in the Item Class
+# Create my own linked list for the buckets
+# Build a tree to find elements quicker 
+from Item import Item
 class HashMap(object):
     """docstring for HashMap."""
     def __init__(self):
@@ -33,29 +40,17 @@ class HashMap(object):
         #set the bucket that is in the index of the hash key
         bucket = self.hashmap[hash_key]
         #go through the bucket and if they key matches one of the keys in the bucket return that object
-        for i, obj in enumerate(bucket):
+        for obj in bucket:
             if obj.get_key() == key:
                 return obj
-#dummy item class so I can practice inserting objects into the hashmap
-class Item(object):
-    """docstring for Item."""
-    def __init__(self, key, value):
-        self.key = key
-        self.value = value
-    #basic getter and setter methods 
-    def get_value(self):
-        return self.value
-    def get_key(self):
-        return self.key
-    def set_value(self, value):
-        self.value = value
-    def print_object(self):
-        print("Key : {} \tValue: {}".format(self.key, self.value))
+
+    def get_map_size(self):
+        return len(self.hashmap)
 
 if __name__ == "__main__":
     hm = HashMap()
     hm.insert_item(Item("001", "Some random value"))
     hm.insert_item(Item("010", "Another value or whatever"))
 
-    hm.get_item_value("001").print_object()
-    hm.get_item_value("010").print_object()
+    print(hm.get_item_value("001"))
+    print(hm.get_map_size())
