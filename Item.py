@@ -14,5 +14,5 @@ class Item(object):
     def __str__(self):
         return str("Key : {} \tValue: {}".format(self.key, self.value))
 
-    def __eq__(self, Item):
-        return Item.get_key() == self.key
+    def __eq__(self, key):
+        return key == self.key

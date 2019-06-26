@@ -15,11 +15,16 @@ class LinkedList():
         while current:
             count += 1
             current = current.get_next()
-        return current
+        return count
 
-    def search(self, Item):
+    def search(self, key):
         current = self.head
         found = False
         while current and not found:
-            if current.get_item() == Item:
+            if current.get_item() == key:
                 found = True
+            else:
+                current = current.get_next()
+        if current is None:
+            raise ValueError ("Data Not In List")
+        return current
