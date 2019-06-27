@@ -3,7 +3,9 @@ class LinkedList():
     """docstring for LinkedList."""
     def __init__(self, head = None):
         self.head = head
-    
+    def get_head(self):
+        return self.head
+        
     def insert(self, item):
         new_node = Node(item)
         new_node.set_next(self.head)
